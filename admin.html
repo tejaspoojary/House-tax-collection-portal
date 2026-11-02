@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Admin Dashboard</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <header>
+    <h1>Admin Dashboard</h1>
+    <p>House tax collection overview</p>
+  </header>
+
+  <main class="wide">
+    <div class="stats">
+      <div class="stat"><span id="collected">₹0</span><p>Total collected</p></div>
+      <div class="stat"><span id="pending">₹0</span><p>Total pending</p></div>
+      <div class="stat"><span id="paidCount">0</span><p>Houses paid</p></div>
+      <div class="stat"><span id="pendingCount">0</span><p>Houses pending</p></div>
+    </div>
+
+    <div class="card">
+      <h3>Defaulters (pending dues)</h3>
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>ID</th><th>Owner</th><th>Address</th><th>Amount due</th></tr></thead>
+          <tbody id="defaulters"></tbody>
+        </table>
+      </div>
+    </div>
+
+    <div class="card">
+      <h3>Payments received</h3>
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>Receipt</th><th>ID</th><th>Owner</th><th>Amount</th><th>Method</th><th>Date</th></tr></thead>
+          <tbody id="paymentsBody"></tbody>
+        </table>
+      </div>
+    </div>
+
+    <button class="pay-btn reset" onclick="resetData()">Reset demo data</button>
+    <p class="back"><a href="index.html">← Back to portal</a></p>
+  </main>
+
+  <script src="data.js"></script>
+  <script src="admin.js"></script>
+</body>
+</html>

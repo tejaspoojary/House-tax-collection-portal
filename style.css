@@ -1,0 +1,431 @@
+:root {
+  --primary: #1d4e89;
+  --primary-dark: #163a66;
+  --accent: #2a9d8f;
+  --success: #1e8e3e;
+  --danger: #d93025;
+  --bg: #f0f4f8;
+  --text: #1f2933;
+  --muted: #6b7785;
+  --radius: 14px;
+  --shadow: 0 4px 16px rgba(29, 78, 137, 0.12);
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: "Poppins", Arial, sans-serif;
+  background: var(--bg);
+  color: var(--text);
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+/* ---------- Header ---------- */
+header {
+  background: linear-gradient(135deg, var(--primary), var(--accent));
+  color: white;
+  text-align: center;
+  padding: 40px 15px 70px;
+}
+
+header h1 {
+  font-size: 1.9rem;
+  font-weight: 600;
+  margin-bottom: 8px;
+}
+
+header p {
+  opacity: 0.9;
+}
+
+/* ---------- Layout ---------- */
+main {
+  width: 100%;
+  max-width: 500px;
+  margin: -35px auto 30px;
+  padding: 0 15px;
+  flex: 1;
+}
+
+main.wide {
+  max-width: 900px;
+}
+
+/* ---------- Cards ---------- */
+.search-box,
+.card {
+  background: white;
+  padding: 25px;
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+}
+
+.card {
+  margin-top: 20px;
+  animation: fadeUp 0.35s ease;
+}
+
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(12px); }
+  to   { opacity: 1; transform: none; }
+}
+
+.search-box h2,
+.card h3 {
+  font-weight: 600;
+  margin-bottom: 12px;
+}
+
+.card p {
+  margin: 8px 0;
+  color: var(--muted);
+}
+
+.card p strong {
+  color: var(--text);
+}
+
+/* ---------- Form controls ---------- */
+.search-box input,
+select {
+  width: 100%;
+  padding: 13px 14px;
+  margin: 8px 0 15px;
+  border: 1.5px solid #d5dde5;
+  border-radius: 10px;
+  font-size: 16px;
+  font-family: inherit;
+  transition: border-color 0.2s, box-shadow 0.2s;
+}
+
+.search-box input:focus,
+select:focus {
+  outline: none;
+  border-color: var(--primary);
+  box-shadow: 0 0 0 4px rgba(29, 78, 137, 0.15);
+}
+
+label {
+  display: block;
+  margin-top: 12px;
+  font-weight: 500;
+}
+
+/* ---------- Buttons ---------- */
+.search-box button,
+.pay-btn {
+  width: 100%;
+  padding: 13px;
+  margin-top: 10px;
+  background: var(--primary);
+  color: white;
+  border: none;
+  border-radius: 10px;
+  font-size: 16px;
+  font-weight: 500;
+  font-family: inherit;
+  cursor: pointer;
+  transition: background 0.2s, transform 0.15s, box-shadow 0.2s;
+}
+
+.search-box button:hover,
+.pay-btn:hover {
+  background: var(--primary-dark);
+  transform: translateY(-2px);
+  box-shadow: 0 6px 14px rgba(29, 78, 137, 0.3);
+}
+
+.pay-btn {
+  background: var(--success);
+}
+
+.pay-btn:hover {
+  background: #166b2f;
+  box-shadow: 0 6px 14px rgba(30, 142, 62, 0.3);
+}
+
+.pay-btn.reset {
+  background: var(--danger);
+}
+
+.pay-btn.reset:hover {
+  background: #b3261e;
+}
+
+/* ---------- Status badges ---------- */
+.paid,
+.pending {
+  display: inline-block;
+  padding: 3px 14px;
+  border-radius: 999px;
+  font-size: 0.85rem;
+  font-weight: 600;
+}
+
+.paid {
+  background: #e6f4ea;
+  color: var(--success);
+}
+
+.pending {
+  background: #fce8e6;
+  color: var(--danger);
+}
+
+.card.error {
+  border-left: 5px solid var(--danger);
+  color: var(--danger);
+}
+
+.card.receipt {
+  border-left: 5px solid var(--success);
+  background: #fbfffc;
+}
+
+/* ---------- Admin dashboard ---------- */
+.stats {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap: 15px;
+}
+
+.stat {
+  background: white;
+  padding: 20px;
+  border-radius: var(--radius);
+  text-align: center;
+  box-shadow: var(--shadow);
+  border-top: 4px solid var(--accent);
+}
+
+.stat span {
+  font-size: 1.8rem;
+  font-weight: 600;
+  color: var(--primary);
+}
+
+.stat p {
+  color: var(--muted);
+  margin-top: 5px;
+  font-size: 0.9rem;
+}
+
+.table-wrap {
+  overflow-x: auto;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 10px;
+  font-size: 0.92rem;
+}
+
+th, td {
+  text-align: left;
+  padding: 12px 10px;
+  border-bottom: 1px solid #edf1f5;
+  white-space: nowrap;
+}
+
+th {
+  background: #f4f7fa;
+  color: var(--muted);
+  font-weight: 500;
+}
+
+tbody tr:hover {
+  background: #f8fafc;
+}
+
+.back {
+  text-align: center;
+  margin-top: 15px;
+}
+
+/* ---------- Footer & links ---------- */
+footer {
+  text-align: center;
+  padding: 20px;
+  color: var(--muted);
+  font-size: 0.9rem;
+}
+
+a {
+  color: var(--primary);
+  text-decoration: none;
+  font-weight: 500;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+/* ---------- Small screens ---------- */
+@media (max-width: 480px) {
+  header h1 {
+    font-size: 1.5rem;
+  }
+
+  .search-box,
+  .card {
+    padding: 18px;
+  }
+}
+
+@media print {
+  header, footer, .search-box, .pay-btn {
+    display: none;
+  }
+}
+/* ---------- Payment screen ---------- */
+.summary {
+  background: #f4f7fa;
+  border-radius: 10px;
+  padding: 14px 16px;
+  margin-bottom: 18px;
+}
+
+.summary div {
+  display: flex;
+  justify-content: space-between;
+  gap: 10px;
+  padding: 4px 0;
+  color: var(--muted);
+}
+
+.summary strong {
+  color: var(--text);
+}
+
+.summary .total {
+  border-top: 1px dashed #cfd8e0;
+  margin-top: 8px;
+  padding-top: 10px;
+}
+
+.summary .total strong {
+  font-size: 1.3rem;
+  color: var(--primary);
+}
+
+.section-label {
+  font-weight: 500;
+  color: var(--text) !important;
+  margin-bottom: 8px;
+}
+
+.methods {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 10px;
+  margin-bottom: 10px;
+}
+
+.method {
+  padding: 12px 6px;
+  background: white;
+  border: 1.5px solid #d5dde5;
+  border-radius: 10px;
+  font-family: inherit;
+  font-size: 0.85rem;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.method:hover {
+  border-color: var(--primary);
+}
+
+.method.active {
+  border-color: var(--primary);
+  background: #eaf1fa;
+  color: var(--primary);
+  font-weight: 600;
+  box-shadow: 0 0 0 3px rgba(29, 78, 137, 0.12);
+}
+
+.row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+}
+
+#methodFields input,
+#methodFields select {
+  width: 100%;
+  padding: 13px 14px;
+  margin: 8px 0 4px;
+  border: 1.5px solid #d5dde5;
+  border-radius: 10px;
+  font-size: 16px;
+  font-family: inherit;
+}
+
+#methodFields input:focus,
+#methodFields select:focus {
+  outline: none;
+  border-color: var(--primary);
+  box-shadow: 0 0 0 4px rgba(29, 78, 137, 0.15);
+}
+
+.form-error {
+  color: var(--danger) !important;
+  font-size: 0.9rem;
+  min-height: 1.2em;
+}
+
+.secure-note {
+  text-align: center;
+  font-size: 0.8rem;
+  margin-top: 12px !important;
+}
+
+.pay-btn:disabled {
+  opacity: 0.8;
+  cursor: wait;
+  transform: none;
+}
+
+.spinner {
+  display: inline-block;
+  width: 14px;
+  height: 14px;
+  margin-right: 8px;
+  vertical-align: middle;
+  border: 2px solid rgba(255, 255, 255, 0.4);
+  border-top-color: white;
+  border-radius: 50%;
+  animation: spin 0.7s linear infinite;
+}
+
+@keyframes spin {
+  to { transform: rotate(360deg); }
+}
+.match {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  padding: 12px 14px;
+  margin-top: 10px;
+  border: 1.5px solid #d5dde5;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.match:hover {
+  border-color: var(--primary);
+  background: #eaf1fa;
+}
+
+.match span {
+  color: var(--muted);
+  font-size: 0.85rem;
+}
