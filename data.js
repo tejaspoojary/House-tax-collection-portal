@@ -11,6 +11,12 @@ const defaultPayments = [
   { receiptNo: "RCPT1001", id: "H102", owner: "Anita Sharma", amount: 1800, method: "UPI",         paidOn: "12/10/2026, 10:15:00 am" },
   { receiptNo: "RCPT1002", id: "H105", owner: "Imran Khan",   amount: 2100, method: "Net Banking", paidOn: "15/10/2026, 4:40:00 pm" }
 ];
+const DATA_VERSION = "v1";
+if (localStorage.getItem("dataVersion") !== DATA_VERSION) {
+  localStorage.removeItem("properties");
+  localStorage.removeItem("payments");
+  localStorage.setItem("dataVersion", DATA_VERSION);
+}
 
 // Load saved data, or use the defaults the first time
 let properties = JSON.parse(localStorage.getItem("properties")) || defaultProperties;
